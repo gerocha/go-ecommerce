@@ -8,7 +8,8 @@ import (
 func TestPasswordLength(t *testing.T) {
     pw := "123"
     password := Password{pw}
-    if password.IsValid() {
+    is_valid, _ := password.IsValid()
+    if !is_valid {
         t.Fatalf("Validação de força de senha não passou")
     }
 }

@@ -1,16 +1,20 @@
-package entity
+package client
 
 import "tabajara/ecommerce/internal/domain/value_object"
 
-type Account struct {
+type Client struct {
     Id int
     Email string
-    Password value_object.Password
+    Name string
+    Password *value_object.Password
 }
 
-func New(id int, email string, password string) *Account {
-    var pw value_object.Password
-    pw.Value = password
+func NewClient(id int, email string, name string, password string) (*Client, error) {
+    pw, error := value_object.NewPassword(password)
 
-    return &Account{id, email, pw}
+    if error != nil {
+        return nil, error
+    }
+
+    return &Client{id, email, name, pw}, nil
 }
