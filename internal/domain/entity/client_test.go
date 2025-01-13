@@ -5,7 +5,7 @@ import (
 )
 
 func TestCreateClientInstance(t *testing.T) {
-    _, error := NewClient(1, "bla", "Vini Jr","12")
+    _, error := NewClientDomain(1, "bla", "Vini Jr","1234")
     if error != nil{
         t.Fatalf(error.Error())
     }

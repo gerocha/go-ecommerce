@@ -9,7 +9,7 @@ type Client struct {
     Password *value_object.Password
 }
 
-func NewClient(id int, email string, name string, password string) (*Client, error) {
+func NewClientDomain(id int, email string, name string, password string) (*Client, error) {
     pw, error := value_object.NewPassword(password)
 
     if error != nil {
